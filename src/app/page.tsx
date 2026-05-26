@@ -128,7 +128,7 @@ export default function BookLync() {
       {/* PROOF */}
       <section id="proof" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6 text-center mb-14">
+          <div className="grid md:grid-cols-3 gap-6 text-center">
             {[
               { value: "+65%", label: "de rendez-vous pris vs formulaire manuel" },
               { value: "< 4min", label: "entre intention et confirmation" },
@@ -140,18 +140,6 @@ export default function BookLync() {
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-100 rounded-3xl p-10 text-center">
-            <blockquote className="text-2xl font-medium text-purple-950 mb-6 leading-relaxed" style={{ fontFamily: "var(--font-display)" }}>
-              &ldquo;Avant, je perdais 3h/semaine à jongler avec les agendas. BookLync a tout pris en charge — j&apos;ai juste à préparer mes calls.&rdquo;
-            </blockquote>
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-11 h-11 rounded-full bg-purple-200 flex items-center justify-center font-bold text-purple-700">SB</div>
-              <div className="text-left">
-                <div className="font-semibold text-purple-950">Sophie B.</div>
-                <div className="text-sm text-purple-500">Consultante indépendante B2B</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -162,9 +150,14 @@ export default function BookLync() {
             Votre agenda se remplit dès ce soir
           </h2>
           <p className="text-purple-200 text-xl mb-10">Connexion Calendly en 5 minutes. Premiers RDV automatiques aujourd&apos;hui.</p>
-          <a href="mailto:hello@wikolabs.com?subject=BookLync — Demande de démo" className="inline-block bg-white text-purple-700 hover:bg-purple-50 px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl">
-            Remplir mon agenda →
-          </a>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="https://calendly.com/wikolabs" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-purple-700 hover:bg-purple-50 px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl">
+              📅 Réserver un créneau →
+            </a>
+            <a href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20BookLync%20avec%20Wikolabs." target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-purple-700 hover:bg-purple-50 px-10 py-5 rounded-xl font-bold text-xl transition-all shadow-xl" style={{ background: "#25d366", borderColor: "#25d366" }}>
+              💬 WhatsApp →
+            </a>
+          </div>
           <p className="text-purple-300 text-sm mt-5">Essai gratuit 14 jours. Aucune carte bancaire requise.</p>
         </div>
       </section>
