@@ -1,4 +1,4 @@
-export default function BookLync() {
+﻿export default function BookLync() {
   return (
     <div className="min-h-screen" style={{ fontFamily: "var(--font-body)" }}>
 
@@ -168,7 +168,7 @@ export default function BookLync() {
           <span className="font-bold text-white text-xl" style={{ fontFamily: "var(--font-display)" }}>BookLync</span>
           <p className="text-sm">© 2025 BookLync — Un produit <a href="https://wikolabs.com" className="text-purple-400 hover:text-purple-200">Wikolabs</a></p>
           <div className="flex gap-6 text-sm">
-            <a href="mailto:hello@wikolabs.com" className="hover:text-purple-200 transition-colors">Contact</a>
+            <a href="mailto:team@wikolabs.com" className="hover:text-purple-200 transition-colors">Contact</a>
             <a href="https://wikolabs.com" className="hover:text-purple-200 transition-colors">Wikolabs</a>
           </div>
         </div>
