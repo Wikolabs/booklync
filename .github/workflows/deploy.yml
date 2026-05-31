@@ -15,8 +15,10 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.WIKOLABS_VM_SSH_KEY }}
           VM_HOST: ${{ secrets.WIKOLABS_VM_HOST }}
           VM_USER: ${{ secrets.WIKOLABS_VM_USER }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh -i ~/.ssh/deploy_key             -o StrictHostKeyChecking=no             -o UserKnownHostsFile=/dev/null             -o ServerAliveInterval=30             -o ServerAliveCountMax=30             "$VM_USER@$VM_HOST"             "set -e; if [ -d /opt/booklync/.git ]; then cd /opt/booklync && git fetch origin main && git reset --hard origin/main; else git clone https://github.com/Wikolabs/booklync.git /opt/booklync && cd /opt/booklync; fi && docker build -t booklync:local . && (docker stop booklync 2>/dev/null; docker rm booklync 2>/dev/null; true) && docker run -d --name booklync -p 3005:3000 --restart unless-stopped booklync:local && echo 'Deployed booklync on port 3005'"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=30 -o ServerAliveCountMax=30 "$VM_USER@$VM_HOST" "set -e; if [ -d /opt/booklync/.git ]; then cd /opt/booklync && git fetch origin main && git reset --hard origin/main; else git clone https://github.com/Wikolabs/booklync.git /opt/booklync && cd /opt/booklync; fi && docker build -t booklync:local . && (docker stop booklync 2>/dev/null; docker rm booklync 2>/dev/null; true) && docker run -d --name booklync -p 3005:3000 -e GROQ_API_KEY='$GROQ_API_KEY' -e GEMINI_API_KEY='$GEMINI_API_KEY' --restart unless-stopped booklync:local && echo 'Deployed booklync on port 3005'"
